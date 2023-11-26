@@ -113,7 +113,7 @@ open class NineNineNineHentai(
                     language = siteLang,
                     sortBy = filters.firstInstanceOrNull<SortFilter>()?.selected,
                     format = filters.firstInstanceOrNull<FormatFilter>()?.selected,
-                    tags = filters.firstInstanceOrNull<IncludedTagFilter>()?.tags,
+                    tags = filters.firstInstanceOrNull<IncludedTagFilter>()?.selected,
                     excludeTags = filters.firstInstanceOrNull<ExcludedTagFilter>()?.tags,
                     pagesRangeStart = filters.firstInstanceOrNull<MinPageFilter>()?.value,
                     pagesRangeEnd = filters.firstInstanceOrNull<MaxPageFilter>()?.value,

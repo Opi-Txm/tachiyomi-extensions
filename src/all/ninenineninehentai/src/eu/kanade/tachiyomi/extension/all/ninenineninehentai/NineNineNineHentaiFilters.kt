@@ -52,9 +52,15 @@ class MinPageFilter : PageFilter("Minimum Pages")
 
 class MaxPageFilter : PageFilter("Maximum Pages")
 
-class IncludedTagFilter : TagFilter("Include Tags")
-
+class IncludedTagFilter : SelectFilter(
+    "Include Tag",
+    genrePairs.distinct().sortedBy { it.first }.toTypedArray(),
+)
 class ExcludedTagFilter : TagFilter("Exclude Tags")
+
+private const val GENRE_TAGS = ",Uncensored,Futanari,Shotacon,Lolicon,Incest,Loli,Mind Control,Netorare,Milf,Rape,Bestiality,Yaoi,Yuri,Anal,Mother,Dark Skin,Tentacles,Sex Toys,Sole Female,Impregnation,Pregnant,Big Breasts,Gender Bender,Bondage,Femdom,Monster,Crossdressing,Harem,Lactation,Cheating,Ahegao,Huge Breasts,Tomgirl,Guro,Bbm,Feminization,Exhibitionism,Gyaru,Elf,Teacher,Masturbation,Stockings,Bdsm,Shota,Blackmail,Public Sex,Schoolgirl Uniform,Prostitution,Maid,Swimsuit,Blowjob,Group,Hairy,Paizuri,Torture,Vtuber"
+
+val genrePairs = GENRE_TAGS.split(",").map { it to it.lowercase() }.toTypedArray()
 
 fun getFilters() = FilterList(
     SortFilter(),
@@ -67,3 +73,5 @@ fun getFilters() = FilterList(
     ExcludedTagFilter(),
     Filter.Header("comma (,) separated tag/parody/character/artist/group"),
 )
+
+

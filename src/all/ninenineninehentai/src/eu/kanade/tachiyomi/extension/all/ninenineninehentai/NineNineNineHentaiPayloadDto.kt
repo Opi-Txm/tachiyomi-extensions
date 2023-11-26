@@ -29,7 +29,7 @@ data class SearchPayload(
     val language: String,
     val sortBy: String?,
     val format: String?,
-    val tags: List<String>?,
+    val tags: String?,
     val excludeTags: List<String>?,
     val pagesRangeStart: Int?,
     val pagesRangeEnd: Int?,

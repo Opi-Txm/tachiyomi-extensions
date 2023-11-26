@@ -115,7 +115,7 @@ open class NineNineNineHentai(
                     format = filters.firstInstanceOrNull<FormatFilter>()?.selected,
                     tags = filters.firstInstanceOrNull<IncludedTagFilter>()?.selected,
                     excludeTags = filters.firstInstanceOrNull<ExcludedTagFilter>()?.tags,
-                    pagesRangeStart = filters.firstInstanceOrNull<MinPageFilter>()?.value,
+                    pagesRangeStart = if (filters.firstInstanceOrNull<MinPageFilter>()?.value == null && filters.firstInstanceOrNull<MaxPageFilter>()?.value != null) 1 else filters.firstInstanceOrNull<MinPageFilter>()?.value,
                     pagesRangeEnd = filters.firstInstanceOrNull<MaxPageFilter>()?.value,
                 ),
             ),

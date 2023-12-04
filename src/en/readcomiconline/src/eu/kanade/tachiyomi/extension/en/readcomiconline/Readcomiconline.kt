@@ -175,7 +175,7 @@ class Readcomiconline : ConfigurableSource, ParsedHttpSource() {
     }
 
     override fun pageListRequest(chapter: SChapter): Request {
-        val qualitySuffix = if (qualitypref() != "lq" && serverpref() != "s2" || qualitypref() == "lq" && serverpref() == "s2") "&s=${serverpref()}&quality=${qualitypref()}" else "&s=${serverpref()}"
+        val qualitySuffix = if ((qualitypref() != "lq" && serverpref() != "s2") || (qualitypref() == "lq" && serverpref() == "s2")) "&s=${serverpref()}&quality=${qualitypref()}" else "&s=${serverpref()}"
         return GET(baseUrl + chapter.url + qualitySuffix, headers)
     }
 
